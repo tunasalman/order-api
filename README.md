@@ -4,9 +4,9 @@
 
 - **[NestJS](https://docs.nestjs.com/)** - Nest (NestJS) is a framework for building efficient, scalable Node.js server-side applications
 
-- **[Dockerfile]()** - Dockerfile to generate docker builds.
+- **[Dockerfile](https://github.com/tunasalman/order-api/blob/main/Dockerfile)** - Dockerfile to generate docker builds.
 
-- **[docker-compose]()** - Docker compose script to start service in dev mode.
+- **[docker-compose](https://github.com/tunasalman/order-api/blob/main/docker-compose.yml)** - Docker compose script to start service in dev mode.
 
 - **[Class Validator](https://www.npmjs.com/package/class-validator)** - Allows use of decorator based validation.
 
