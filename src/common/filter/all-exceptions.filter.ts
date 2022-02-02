@@ -2,6 +2,7 @@ import {
   ArgumentsHost,
   Catch,
   ExceptionFilter,
+  HttpException,
   HttpStatus,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
@@ -15,9 +16,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const response = ctx.getResponse();
     const request = ctx.getRequest();
     const status = exception.status ?? HttpStatus.INTERNAL_SERVER_ERROR;
-
+    let errorResponse: any;
+    if (exception instanceof HttpException) {
+      errorResponse = exception.getResponse();
+    }
     response.status(status).json({
-      ...exception.getResponse(),
+      ...errorResponse,
       statusCode: status,
       error: STATUS_CODES[status],
       timestamp: new Date().toISOString(),
