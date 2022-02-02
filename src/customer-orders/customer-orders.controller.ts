@@ -7,7 +7,7 @@ import {
   HttpStatus,
   Patch,
   Post,
-  Query
+  Query,
 } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { IDParam } from 'src/common/decorators/id.decorator';

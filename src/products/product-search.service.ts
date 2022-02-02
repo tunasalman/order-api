@@ -31,17 +31,18 @@ export default class ProductSearchService {
         body: {
           query: {
             bool: {
-              should: {
-                multi_match: {
-                  query: text,
-                  fields: ['description', 'barcode'],
+              must: [
+                {
+                  wildcard: {
+                    description: `${text}*`,
+                  },
                 },
-              },
-            },
-          },
-          sort: {
-            id: {
-              order: 'asc',
+                {
+                  wildcard: {
+                    barcode: `${text}*`,
+                  },
+                },
+              ],
             },
           },
         },
